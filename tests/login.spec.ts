@@ -1,33 +1,38 @@
-
-import { test } from '@playwright/test';
-import { LoginPage } from '../pages/login-page';
-
+import { test } from "@playwright/test";
+import { LoginPage } from "../pages/login-page";
 
 test.describe('Login Functionality', () => {
     let loginPage: LoginPage;
 
     test.beforeEach(async ({ page }) => {
         loginPage = new LoginPage(page);
-        await loginPage.navigateTo();
+        await loginPage.goToLoginPage();
     });
 
-    test('Login with valid username and password', async () => {
-        const validUsername = 'PrabhuSaravanan';
-        const validPassword = 'Testing@Whiteboard';
+    test('Login with Valid Username & Password', async ({ page }) => {
+      
+        await loginPage.enterUsername('PrabhuSaravanan');
+        await loginPage.clickContinue();
 
-        await loginPage.loginWithRightUsernameAndPassword(validUsername, validPassword);
-
+        await loginPage.enterPassword('Testing@Whiteboard');
+        await loginPage.clickContinue();
     });
 
-    test('Login with valid mobile number and password', async () => {
-        const validMobileNumber = 7373833328;
-        const validPassword = 'Testing@Whiteboard';
+    test('Login with Valid Phone Number', async ({ page }) => {
 
-        await loginPage.loginWithMobileNumberAndPassword(validMobileNumber, validPassword);
+        await loginPage.enterPhoneNumber('7373833328');
+        await loginPage.clickContinue();
+
+        await loginPage.enterPassword('Testing@Whiteboard');
+        await loginPage.clickContinue();
     });
 
+    test('Login with Invalid Username', async ({ page }) => {
+
+        await loginPage.enterUsername('Prabhu');
+        await loginPage.clickContinue();
+
+        await loginPage.enterPassword('Testing@Whiteboard');
+        await loginPage.clickContinue();
+    });
 });
-
-
-
-
