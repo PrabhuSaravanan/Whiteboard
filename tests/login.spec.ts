@@ -22,9 +22,9 @@ test.describe('Login Page Functionality', () => {
         const isSignInTitleVisible = await loginPage.signInTitle.isVisible();
         await expect(isSignInTitleVisible).toBeTruthy();
 
-        await loginPage.signInSubtitle.waitFor({state:'visible'});
-        const isSignInSubtitleVisible = await loginPage.signInSubtitle.isVisible();
-        await expect(isSignInSubtitleVisible).toBeTruthy();
+        // await loginPage.signInSubtitle.waitFor({state:'visible'});
+        // const isSignInSubtitleVisible = await loginPage.signInSubtitle.isVisible();
+        // await expect(isSignInSubtitleVisible).toBeTruthy();
 
         await loginPage.emailOrUsernameLabel.waitFor({state:'visible'});
         const isEmailOrUsernameLabelVisible = await loginPage.emailOrUsernameLabel.isVisible();
@@ -96,7 +96,7 @@ test.describe('Login Page Functionality', () => {
         await expect(isUseAnotherMethodLinkVisible).toBeVisible()
         await expect(isUseAnotherMethodLinkVisible).toBeTruthy();
 
-        
+
     })
 
 

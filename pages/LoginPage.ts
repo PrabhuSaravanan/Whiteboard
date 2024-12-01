@@ -39,7 +39,8 @@ export class LoginPage {
         this.dontHaveAnAccountText = page.locator('[data-localization-key="signIn.start.actionText"]')
         this.securedByText = page.locator('p.cl-internal-wf8x4b')
         this.useAnotherMethodLink = page.locator('a[data-localization-key="signIn.password.actionLink"]')
-
+        this.signUpLink = page.locator('a[data-localization-key="signIn.start.actionLink"]');
+        this.clerkLink = page.locator('a[aria-label="Clerk logo"]');
 
         this.emailOrUsernameLabel = page.locator('label[data-localization-key="formFieldLabel__emailAddress_username"]')
         this.usePhoneLabel = page.locator('a[data-localization-key="signIn.start.actionLink__use_phone"]')
@@ -53,8 +54,4 @@ export class LoginPage {
         this.wrongUsernameErrorMessage = page.locator('#error-identifier')
         this.wrongPasswordErrorMessage = page.locator('#error-password')
      }
-
-     
-   
-
 }
